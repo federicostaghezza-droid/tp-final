@@ -1,0 +1,30 @@
+Capítulo 1:
+Mapa de Arquitectura del Sistema (20% de la Nota)Texto técnico: "La arquitectura del ecosistema sigue un diseño lineal y desacoplado para garantizar la resiliencia y la optimización de tokens. Se compone de un nodo disparador Airtable: TriggerWatchRecords (ID 1), un enrutador comercial inicial Builtin: BasicRouter (ID 30) para la separación de leads nuevos y aprobados, un motor de inferencia OpenAI: CreateCompletion (ID 10) corriendo o4-mini, un enrutador semántico de categorías (ID 13) y dos capas de salida integradas por Slack: CreateMessage (ID 14) y Google-Email: SendAnEmail (ID 17)."
+
+IMG1
+
+Capítulo 2:
+Manual Operativo de Datos y Esquema JSON (20% de la Nota)Texto técnico: "La infraestructura relacional del sistema actúa como la memoria central del proceso comercial. Está conformada por dos tablas vinculadas en Airtable para evitar datos aislados: la tabla Leads (que contiene campos clave de control como Estado y Categoria_IA) y la tabla Presupuestos (vinculada mediante una relación 1:N). El contrato de datos estructurado se gestiona mediante la activación de la variable nativa parseJSONResponse: true de OpenAI, permitiendo que Make separe y direccione las variables de salida en casilleros limpios sin necesidad de módulos traductores adicionales."Esquema JSON del Payload de Integración:
+
+{
+  "transaccion": {
+    "origen_id": "recL2MF8vkJ7NOhq",
+    "timestamp": "2026-09-26T14:30:00Z"
+  },
+  "payload_parseado": {
+    "categoria": "VIP",
+    "propuesta": "Estimado cliente, basándonos en su requerimiento técnico de automatización corporativa..."
+  }
+}
+
+
+IMG2
+
+
+Capítulo 3:
+Matriz de Optimización de Costos (20% de la Nota)Texto técnico: "Para garantizar la viabilidad financiera del proyecto, se seleccionó el modelo de razonamiento rápido o4-mini de OpenAI para las tareas de triage y redacción comercial. Esto representa un costo ínfimo de procesamiento (~$0.15 por cada millón de tokens de entrada), permitiendo filtrar spam y leads irrelevantes casi a costo cero. Frente al procesamiento tradicional, donde un analista comercial manual demora un promedio de 45 minutos (un costo estimado de $11.25 USD por propuesta), la automatización procesa el requerimiento en 4 segundos reduciendo los costos directos en un 99.9% y eliminando el costo de oportunidad por lentitud comercial."
+
+Capítulo 4: Documentación de Seguridad, Resiliencia y HITL (20% de la Nota)Texto técnico: "El sistema implementa políticas estrictas de privacidad y minimización de datos: los datos sensibles del usuario se quedan aislados en Airtable, enviando al LLM externo únicamente el contenido de la variable dinámica {{1.Mensaje}} para el análisis comercial. La resiliencia ante caídas de APIs externas se garantiza mediante la optimización de los filtros de control de los routers. Para evitar el 'Efecto Metralleta' y mitigar riesgos reputacionales, se diseñó un punto de validación humana (Human-in-the-loop): el sistema detiene el pipeline comercial de forma obligatoria en el estado intermedio HITL_Validacion y exige que un supervisor humano modifique manualmente la celda a Aprobado en el Dashboard para abrir la compuerta de Gmail, garantizando gobernanza total sobre las comunicaciones salientes."
+
+
+Capítulo 5: Dashboard de Control de KPIs (20% de la Nota)Texto técnico: "El panel de control analítico se configuró directamente en Airtable mediante vistas agrupadas y campos de fórmula automatizados que computan en tiempo real:Tasa de Conversión VIP: (Count(Leads VIP) / Count(Total Leads)) * 100 para auditar la calidad del tráfico entrante.Tasa de Error Técnico: Evalúa fallas de cuotas o caídas de servicios externos, manteniendo el indicador por debajo del límite tolerado del 2%.Tiempo de Respuesta HITL: Fórmula DATETIME_DIFF que mide los minutos que demora el equipo en validar las propuestas en Slack y liberarlas en Airtable, detectando cuellos de botella operativos."
