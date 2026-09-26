@@ -7,7 +7,7 @@
 
 ## 🔗 Enlaces Obligatorios del Proyecto
 * 📊 **Link en Modo Lectura a la Base de Datos (Airtable):** https://airtable.com/appKAebIoG8oTJORo/shr5UPWzweOpbfE4M
-* 🤖 **Lógica del Flujo (Archivo Técnico):** [link](./logicadeflujo.blueprint)
+* 🤖 **Lógica del Flujo (Archivo Técnico):** [[link](https://www.youtube.com/watch?v=lkPeWLFX3x8)](./logicadeflujo.blueprint)
 * 📄 **Documentación Completa y Evidencias:** [link](./documentacion_evidencia.pdf)
 
 ---
